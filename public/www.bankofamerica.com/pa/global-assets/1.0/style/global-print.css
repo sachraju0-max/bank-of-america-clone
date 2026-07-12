@@ -1,0 +1,49 @@
+/* Global Print Styles */
+
+.no_print, .no-print {
+	display:none;
+}
+.tb-bottom-right, .tb-bottom-left, .tb-top-right, .tb-top-left {
+	display: none;
+}
+#oo_bar {
+	display: none !important;
+}
+.print-override {
+	display: block !important;
+}
+.print-hide-offscreen {
+	position:absolute;
+	left:0px;
+	top:-5000px;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+.com-main-well-content ul li, ul.gray-sq-bullet li {
+	background: none;
+	list-style-type:disc;
+	padding: 0 0 6px 3px;
+	margin-left:15px;
+}
+a, a:visited {
+	color:#333!important;
+}
+.boa-info-layer-link, .boa-com-info-layer-link, .boa-task-layer-link, .boa-com-task-layer-link {
+	background: none;
+	border:none;
+}
+.com-main-well-content h2, .com-main-well-content .h2-styling {
+	border-bottom: 3px solid #999;
+}
+.social-widget-module, .com-bofa-social-plugin-overlayID {
+     display:none;
+}
+.btn-bofa, .button-common, .button-common-large {
+    background:none!important;
+    border:1px solid #333!important;
+	color:#333!important;
+}
+.button-common span, .button-common-large span {
+    background:none!important;
+}

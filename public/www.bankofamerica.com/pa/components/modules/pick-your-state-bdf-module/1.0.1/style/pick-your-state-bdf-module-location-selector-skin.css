@@ -1,0 +1,22 @@
+/*   
+File Name: pick-your-state-bdf-module-location-selector-skin.css
+Description: Styles for Pick Your State BDF Module
+*/
+.pick-your-state-bdf-module .location-selector-skin label {
+	display:block;
+	font-weight:bold;
+	padding-bottom:5px;
+}
+.pick-your-state-bdf-module .location-selector-skin select {
+	font-size:1.2em;
+	height:21px;
+	float:left;
+}
+.pick-your-state-bdf-module .location-selector-skin p {
+	padding-bottom:10px;
+}
+.pick-your-state-bdf-module .location-selector-skin .button-cont{
+	float:left;
+	padding-left:20px;
+	font-size:.91em;
+}

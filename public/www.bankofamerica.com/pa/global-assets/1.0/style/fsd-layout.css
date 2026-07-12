@@ -1,0 +1,25 @@
+.fsd-layout-body{padding-bottom:0;background-color:#fff;}
+.fsd-layout{width:980px;margin:0 auto;}
+.fsd-layout .columns{margin:25px 0 80px 25px;*display:inline-block;}
+.fsd-layout .footer{position:relative;}
+.fsd-layout .footer .footer-inner{width:100%;background-color:#f9f7f4;}
+.fsd-layout .footer .dock-footer{position:absolute;bottom:0;left:0;}
+.ie-7 .fsd-layout .footer .footer-inner{overflow:hidden;}
+
+.fsd-layout.fsd-full-width{width:auto;margin:inherit;}
+.fsd-layout.fsd-full-width .columns{width:980px;margin:25px auto 80px;*display:inline-block;}
+.fsd-layout.fsd-full-width .columns .lt-col,.fsd-layout.fsd-full-width .columns .one-col{margin-left:25px;}
+.fsd-full-width .footer .footer-top{margin:0 auto;padding-left:25px;width:955px;}
+
+.fsd-full-width .header .header-module,
+.fsd-full-width .footer-inner .global-footer-module,
+.fsd-full-width .footer-inner .footnote-com-module,
+.fsd-full-width .footer-inner .footnote-module,
+.fsd-full-width .footer-inner .disclaimers-module,
+.fsd-full-width .footer-inner .power-footer-module,
+.fsd-full-width .footer-inner .social-widget-module{width:980px;margin:0 auto;}
+
+.fsd-full-width .footer-inner .social-widget-module{position:relative;}
+
+/* Could change at a later time. Centering for now */
+.fsd-full-width .header .media-module{width:980px;margin:0 auto;}

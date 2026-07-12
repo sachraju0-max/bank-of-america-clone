@@ -1,0 +1,14 @@
+.header-module .text-w-logo-skin .header-left{float:left;margin:20px 0 0 11px;}
+.header-module .text-w-logo-skin .header-right{float:right;margin-top:7px;}
+.header-module .text-w-logo-skin .bofa-logo{margin-right:25px;float:left;}
+.header-module .text-w-logo-skin .product{float:left;color:#857363;margin-top:2px;font-size:22px;font-family:Arial, Helvetica, sans-serif;}
+.header-module .text-w-logo-skin ul.header-links{float:right;color:#666;font:12px/15px Arial, Helvetica, sans-serif;}
+.header-module .text-w-logo-skin ul.header-links li{padding-right:10px;margin-right:10px;float:left;border-right:1px dotted #666;}
+.header-module .text-w-logo-skin ul.header-links li.last-link{border-right:none;padding-right:0;margin-right:0;}
+.header-module .text-w-logo-skin ul.header-links li.sign-in{border-right:none;padding-right:0;margin-right:35px;}
+.header-module .text-w-logo-skin ul.header-links li a{color:#666;}
+.header-module .text-w-logo-skin ul.header-links li.sign-in a{color:#e31930;font-weight:bold;}
+
+.header-module .text-w-logo-skin .bofa-logo a{display:inline-block;padding:5px;margin:-5px;}
+.header-module .text-w-logo-skin .bofa-logo a:focus{outline:1px dotted #0042bd;}
+.cf-cnx-regular-active .header-module .text-w-logo-skin .product{font-size:24px;margin-top:-1px;font-family:'cnx-regular',Arial,sans-serif;}

@@ -1,0 +1,402 @@
+/*   
+File Name: global-baseline.css
+Description: Global Reset/Baseline Styles
+
+	Sections:
+	1) Reset Styles
+	2) General Styles
+	3) One Style Classes
+	4) Custom Font Face Styles
+*/
+
+/* 1 = Reset Styles
+------------------------------------------------------ */
+html {
+	background:#FFF;
+	-webkit-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset, img {
+	border:0;
+}
+address, caption, cite, code, dfn, th, var {
+	font-style:normal;
+	font-weight:normal;
+}
+li {
+	list-style:none;
+}
+caption, th {
+	text-align:left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q {
+   quotes: none;
+}
+q:before, q:after {
+	content:'';
+}
+abbr, acronym {
+	border:0;
+	font-variant:normal;
+}
+sub {
+	vertical-align:text-bottom;
+}
+input, textarea, select {
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+   display: block;
+}
+audio, canvas, video {
+   display: inline-block;
+   *display: inline;
+   *zoom: 1;
+}
+audio:not([controls]) {
+   display: none;
+   height: 0;
+}
+[hidden] {
+   display: none;
+}
+b, strong {
+   font-weight: bold;
+}
+dfn {
+   font-style: italic;
+}
+mark {
+   background: #ff0;
+   color: #000;
+}
+code, kbd, pre, samp {
+   font-family: monospace, serif;
+   _font-family: 'courier new', monospace;
+   font-size: 1em;
+}
+pre {
+   white-space: pre;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+}
+nav ul, nav ol {
+   list-style: none;
+   list-style-image: none;
+}
+img {
+   -ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+   overflow: hidden;
+}
+figure {
+   margin: 0;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+   -webkit-appearance: button;
+   cursor: pointer;
+   *overflow: visible;
+}
+button[disabled], input[disabled] {
+   cursor: default;
+}
+input[type="checkbox"], input[type="radio"] {
+   box-sizing: border-box;
+}
+input[type="search"] {
+   -webkit-appearance: textfield;
+   -moz-box-sizing: content-box;
+   -webkit-box-sizing: content-box;
+   box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+   -webkit-appearance: none;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+   border: 0;
+   padding: 0;
+}
+textarea {
+   overflow: auto;
+   vertical-align: top;
+}
+html.webkit * {
+	max-height:1000000px; /* Font Boosting Fix */
+}
+
+/* 2 = General Styles
+------------------------------------------------------ */
+body {
+	font:62.5%/1.5 Verdana, Arial, Helvetica, sans-serif;
+	color:#333;
+	padding-bottom:40px;
+}
+a {
+	color:#36C;
+	text-decoration:none;
+}
+a:visited {
+	color:#651C7E;
+}
+a:hover {
+	color:#00F;
+	text-decoration:underline;
+}
+a:focus {
+    outline:none;
+	color:#00F;
+	text-decoration:underline;
+}
+.oline:focus {
+	outline:1px dotted #333;
+	text-decoration:none;
+}
+img {
+	border:0 none;
+}
+sup, sub {
+	line-height:0;
+}
+.clearboth {
+	clear:both;
+	height:1px;
+	visibility:hidden;
+	line-height:1pt;
+	font-size:0px;
+}
+.hidden, .hide{
+	display:none;
+}
+form {
+	margin:0;
+	padding:0;
+}
+fieldset {
+	margin:0;
+	padding:0;
+	width:auto;
+	overflow:hidden;
+	border:0;
+}
+.preload-images { 
+   	position: absolute; 
+	left: -10000px; 
+}
+.ada-hidden, legend {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+a#ada-skip-link.ada-visible-focus {
+	display:block;
+	font:14px/18px Arial, Helvetica, sans-serif;
+	height:20px;
+	width:200px;
+    position: absolute;
+    transition: top 1s ease-out 0s, background 1s linear 0s;
+    z-index: 3333;
+	text-align:center;
+}
+a#ada-skip-link.ada-visible-focus:focus {
+	background:#f9f7f4;
+	box-shadow: 0px 0px 2px 0px rgba(51,51,51,0.3);
+    left: 0;
+    top: 0;
+    transition: top 0.1s ease-in 0s, background 0.5s linear 0s;
+	color:#36c;
+}
+a.skipoff {
+	display:none;
+}
+
+/* 3 = One Style Classes
+------------------------------------------------------ */
+
+/* General Margin Styles */
+.m-0{margin:0;}
+.mtop-0{margin-top:0;}
+.mbtm-0{margin-bottom:0;}
+.mlt-0{margin-left:0;}
+.mrt-0{margin-right:0;}
+.m-5{margin:5px;}
+.mtop-5{margin-top:5px;}
+.mbtm-5{margin-bottom:5px;}
+.mlt-5{margin-left:5px;}
+.mrt-5{margin-right:5px;}
+.m-10{margin:10px;}
+.mtop-10{margin-top:10px;}
+.mbtm-10{margin-bottom:10px;}
+.mlt-10{margin-left:10px;}
+.mrt-10{margin-right:10px;}
+.m-15{margin:15px;}
+.mtop-15{margin-top:15px;}
+.mbtm-15{margin-bottom:15px;}
+.mlt-15{margin-left:15px;}
+.mrt-15{margin-right:15px;} /*Generally used for space between buttons.*/
+.m-20{margin:20px;}
+.mtop-20{margin-top:20px;}
+.mbtm-20{margin-bottom:20px;}
+.mlt-20{margin-left:20px;}
+.mrt-20{margin-right:20px;}
+.mtop-25{margin-top:25px;}
+.m-30{margin:30px;}
+.mtop-30{margin-top:30px;}
+.mbtm-30{margin-bottom:30px;}
+.mlt-30{margin-left:30px;} /*Generally used for left margin on uls with no bullets.*/
+.mrt-30{margin-right:30px;}
+.mtop-35{margin-top:35px;}
+.mtop-40{margin-top:40px;}
+
+/* General Padding Styles */
+.p-0{padding:0!important;}
+.ptop-5{padding-top:5px;}
+.pbtm-5{padding-bottom:5px;}
+.prt-5{padding-right:5px;}
+.plt-5{padding-left:5px;}
+.p-10{padding:10px;}
+.ptop-10{padding-top:10px;}
+.pbtm-10{padding-bottom:10px;}
+.prt-10{padding-right:10px;}
+.plt-10{padding-left:10px;}
+.ptop-15{padding-top:15px;}
+.pbtm-15{padding-bottom:15px;}
+.prt-15{padding-right:15px;}
+.plt-15{padding-left:15px;}
+.ptop-20{padding-top:20px;}
+.pbtm-20{padding-bottom:20px;}
+.prt-20{padding-right:20px;}
+.plt-20{padding-left:20px;}
+.ptop-25{padding-top:25px;}
+.pbtm-25{padding-bottom:25px;}
+.prt-25{padding-right:25px;}
+.plt-25{padding-left:25px;}
+.ptop-30{padding-top:30px;}
+.pbtm-30{padding-bottom:30px;}
+.prt-30{padding-right:30px;}
+.plt-30{padding-left:30px;}
+.ptop-35{padding-top:35px;}
+.ptop-40{padding-top:40px;}
+
+
+/* Font Styles */
+.f-11{font-size:1.1em;}
+.f-12{font-size:1.2em;}
+.bold{font-weight:bold;}
+.unbold{font-weight:normal;}
+.italic{font-style:italic;}
+.td-u{text-decoration:underline;}
+.ls-n1{letter-spacing:-1px!important;}
+.ls-n2{letter-spacing:-2px!important;}
+
+/* Styles Used for Positioning */
+.fl-lt{float:left;}
+.fl-rt{float:right;}
+.abs{position:absolute;}
+.rel{position:relative;}
+.rt-0{right:0;}
+.w-100{width:100%;}
+.w-50{width:50%;}
+.w-750{width:750px;}
+.ta-rt{text-align:right;}
+.d-block{display:block;}
+.d-inline{display:inline!important;}
+.dib-ie{*display:inline-block;}  /* Fix for IE6/7 Double Padding Bug */
+.lh-12{line-height:1.2;}
+.clear-both{clear: both;}
+.h-1p{height:1%;}
+.h-100{height:100%;}
+
+/* Styles Used for Backgrounds/Borders/Fonts */
+.bt-dgray{border-top:1px solid #c0c0c0;}
+.bgc-dgray{background-color:#dedede;}
+.bgc-gray{background-color:#f4f4f4;}
+.bgc-lgray{background-color:#f1f1f1;}
+.color-bank-red{color:#dc1431;}
+.color-bank-green{color:#27a927;}
+.color-bank-gray{color:#666;}
+.font-arial{font-family:Arial, Helvetica, sans-serif;}
+.border-rad-4{border-radius:4px;}
+.border-rad-6{border-radius:6px;}
+.border-rad-7{border-radius:7px;}
+.border-rad-8{border-radius:8px;}
+
+/* List Styles */
+ul.li-pbtm-5 li.last-li, ul.li-pbtm-10 li.last-li, ul.li-pbtm-15 li.last-li{padding-bottom:0;}
+ul.li-pbtm-5 li{padding-bottom:5px;}
+ul.li-pbtm-10 li{padding-bottom:10px;}
+ul.li-pbtm-15 li{padding-bottom:15px;}
+
+
+/* 4 = Custom Font Face Rules
+------------------------------------------------------ */
+[data-font] { visibility: hidden; }
+.cf-force-show-crowbar [data-font] { visibility: visible; }
+
+.cf-cnx-bold-active               .cnx-bold                  { font-family:'cnx-bold', Arial, sans-serif; visibility:visible; }
+.cf-cnx-bold-inactive             .cnx-bold                  { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-bold-italic-active        .cnx-bold-italic           { font-family:'cnx-bold-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-bold-italic-inactive      .cnx-bold-italic           { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-cond-bold-active          .cnx-cond-bold             { font-family:'cnx-cond-bold', Arial, sans-serif; visibility:visible; }
+.cf-cnx-cond-bold-inactive        .cnx-cond-bold             { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-cond-bold-italic-active   .cnx-cond-bold-italic      { font-family:'cnx-cond-bold-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-cond-bold-italic-inactive .cnx-cond-bold-italic      { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-cond-light-active          .cnx-cond-light           { font-family:'cnx-cond-light', Arial, sans-serif; visibility:visible; }
+.cf-cnx-cond-light-inactive        .cnx-cond-light           { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-cond-light-italic-active   .cnx-cond-light-italic    { font-family:'cnx-cond-light-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-cond-light-italic-inactive .cnx-cond-light-italic    { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-italic-active               .cnx-italic              { font-family:'cnx-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-italic-inactive             .cnx-italic              { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-light-active               .cnx-light                { font-family:'cnx-light', Arial, sans-serif; visibility:visible; }
+.cf-cnx-light-inactive             .cnx-light                { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-light-italic-active         .cnx-light-italic        { font-family:'cnx-light-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-light-italic-inactive       .cnx-light-italic        { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+
+.cf-cnx-medium-active               .cnx-medium              { font-family:'cnx-medium', Arial, sans-serif; visibility:visible; }
+.cf-cnx-medium-inactive             .cnx-medium              { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+  
+.cf-cnx-medium-italic-active        .cnx-medium-italic       { font-family:'cnx-medium-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-medium-italic-inactive      .cnx-medium-italic       { font-family: Arial, sans-serif; font-weight:700; visibility:visible; }
+  
+.cf-cnx-regular-active              .cnx-regular             { font-family:'cnx-regular', Arial, sans-serif; visibility:visible; }
+.cf-cnx-regular-inactive            .cnx-regular             { font-family: Arial, sans-serif; font-weight:400; visibility:visible; }
+
+.cf-cnx-serif-bold-active            .cnx-serif-bold         { font-family:'cnx-serif-bold', Arial, sans-serif; visibility:visible; }
+.cf-cnx-serif-bold-inactive          .cnx-serif-bold         { font-family: Arial, sans-serif; font-weight:400; visibility:visible; }
+
+.cf-cnx-serif-bold-italic-active      .cnx-serif-bold-italic { font-family:'cnx-serif-bold-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-serif-bold-italic-inactive    .cnx-serif-bold-italic { font-family: Arial, sans-serif; font-weight:400; visibility:visible; }
+
+.cf-cnx-serif-italic-active           .cnx-serif-italic       { font-family:'cnx-serif-italic', Arial, sans-serif; visibility:visible; }
+.cf-cnx-serif-italic-inactive         .cnx-serif-italic       { font-family: Arial, sans-serif; font-weight:400; visibility:visible; }
+
+.cf-cnx-serif-regular-active          .cnx-serif-regular      { font-family:'cnx-serif-regular', Arial, sans-serif; visibility:visible; }
+.cf-cnx-serif-regular-inactive        .cnx-serif-regular      { font-family: Arial, sans-serif; font-weight:400; visibility:visible; }
+
+.cf-fg-medium-active                  .fg-medium              { font-family: 'fg-medium', Times, serif; visibility:visible; }
+.cf-fg-medium-inactive                .fg-medium              { font-family: Times, serif; visibility:visible; }

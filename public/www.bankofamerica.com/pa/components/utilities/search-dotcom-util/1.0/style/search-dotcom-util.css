@@ -1,0 +1,128 @@
+/* New NLH Search, bare-bones CSS targeted to DotCom
+*/
+
+.header-search {
+  position: relative;
+  margin: 0px -10px 10px;
+  float: right;
+  height: 36px;
+}
+
+.header-search.inline {
+  margin: -2px -4px 0 6px;
+}
+/* Clearfix */
+
+.header-search .cf:before,
+.header-search .cf:after {
+  content: " ";
+  /* 1 */
+  
+  display: table;
+  /* 2 */
+}
+
+.header-search .cf:after {
+  clear: both;
+}
+/* Box model reset
+*/
+
+.header-search {
+  box-sizing: border-box;
+}
+
+.header-search *,
+.header-search *:before,
+.header-search *:after {
+  box-sizing: inherit;
+}
+
+.header-search .nav-search {
+  opacity: 0;
+  position: relative;
+  float: right;
+  margin-top: -5px;
+  margin-right: 0;
+  width: 250px;
+  z-index: 900;
+  -webkit-transition: opacity 400ms ease-in-out;
+  -moz-transition: opacity 400ms ease-in-out;
+  -o-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
+}
+
+.header-search .nav-search.ready {
+  opacity: 1;
+}
+/* Positioning for results box */
+
+.header-search .nav-search.show-search-results .search-container {
+  margin-left: -350px;
+}
+/* Positioning on Homepage
+*/
+
+.hp-hm-hps .nav-search {
+  margin-top: -15px;
+  margin-right: -7px;
+}
+/* Search is unavailable due AJAX failure
+*/
+
+.nav-search .unavailable {
+  opacity: 0.33;
+  filter: alpha(opacity=33);
+  -webkit-transition: opacity 500ms linear 1000ms;
+  transition: opacity 500ms linear 1000ms;
+}
+
+.nav-search .unavailable::-webkit-input-placeholder {
+  color: #DC1431 !important;
+}
+
+.nav-search .unavailable:-moz-placeholder {
+  color: #DC1431 !important;
+}
+/* Firefox 18- */
+
+.nav-search .unavailable::-moz-placeholder {
+  color: #DC1431 !important;
+}
+/* Firefox 19+ */
+
+.nav-search .unavailable:-ms-input-placeholder {
+  color: #DC1431 !important;
+}
+/* Layout issue for IE7
+*/
+
+.ie-7 #hp-section-1 .hp-hm-hps .sub-header {
+  position: relative;
+}
+
+.ie-7 #hp-section-1 .hp-hm-hps .header-links {
+  float: none;
+  position: absolute;
+  right: 250px;
+}
+/* RWD Mobile
+*/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 640px) {
+  .header-search {
+    margin: 0;
+    float: none;
+    height: 50px;
+  }
+  .header-search .nav-search {
+    visibility: hidden;
+    position: absolute;
+    height: 0;
+    width: 100%;
+    top: 4rem;
+    left: 0;
+    margin-top: 0;
+    float: none;
+  }
+}

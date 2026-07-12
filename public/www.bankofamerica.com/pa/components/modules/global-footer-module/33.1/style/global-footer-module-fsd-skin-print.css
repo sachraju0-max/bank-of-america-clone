@@ -1,0 +1,14 @@
+.global-footer-module .fsd-skin .gf-links {
+	display:none;
+}
+.global-footer-module .fsd-skin p {
+	padding-top:12px;
+}
+.global-footer-module .fsd-skin a {
+	color:#333;
+}
+.flex-layout .footer .footer-inner .global-footer-module .fsd-skin, 
+.fsd-layout .footer-inner .global-footer-module .fsd-skin {
+    margin:0;
+    padding-bottom:0;
+}

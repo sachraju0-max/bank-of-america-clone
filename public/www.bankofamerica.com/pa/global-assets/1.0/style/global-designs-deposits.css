@@ -1,0 +1,75 @@
+/*   
+File Name: global-designs.css
+Description: Global Design Styles for Deposits
+
+  Sections:
+  1) Layout Classes
+  2) Blue Contact Us Banner Classes
+  3) Common Tableless and Table Classes
+  4) Show/Hide Classes
+
+*/
+
+/* Layout Classes */
+body .dsp-unique{width:980px;margin:0 auto;}
+body .dsp-unique .left-column, body .single-column-layout .main-content{margin-left:0;}
+
+.dsp-print-link{font-size:1.1em;position:relative;left:852px;margin:-24px 0 8px 0;width:137px}
+
+/* Common Tableless and Table Sections */
+.tableless-section{padding:0 40px 25px 25px;font-size:1.2em;}
+.tableless-section .pbtm-10 .fl-rt{color:#27a927;font-weight:bold;}
+.tableless-section ul li, .pp-column-content ul li, .content-area ul li{list-style-type:disc;margin:0 0 2px 15px;}
+.bullet-bground{margin-left:15px;display:list-item;list-style-type:disc;}
+.tableless-heading{padding-bottom:15px;font-weight:bold;}
+.table-section{padding:0 0 25px 0;font-size:1.2em;}
+.table-heading{font-weight:bold;padding:0 0 5px 25px;}
+.table-section table{width:100%;}
+.table-section table th{background-color:#f3f7fa;font-weight:bold;}
+.table-section table th, .table-section table td{border-top:1px solid #d0d0d0;border-bottom:1px solid #d0d0d0;padding:10px 25px;width:33%;}
+.olb-dsp-custodial-Savings-for-youth-module .table-section table{border:1px solid #ccc;}
+
+.table-section table.complex-table th{background-color:#fff;font-weight:bold;}
+.table-section table.complex-table th, .table-section table.complex-table td{width:auto;border-top:1px dashed #a7a7a7;border-bottom:1px dashed #a7a7a7;}
+.table-section table.complex-table th.solid-bt, .table-section table.complex-table td.solid-bt{border-top:1px solid #d0d0d0;}
+.table-section table.complex-table th.solid-bb, .table-section table.complex-table td.solid-bb{border-bottom:1px solid #d0d0d0;}
+.table-section table.complex-table tr.colored-row{background-color:#f3f7fa;}
+.table-section table.complex-table td.right-gap{padding-right:80px;}
+
+.gradient-table{padding:0 0 30px;font-size:1.2em;}
+.gradient-table th{background:url("../graphic/deposits/gt-th-gradient.html") repeat-x;border-bottom:1px solid #ccc;text-align:center;font-weight:bold;height:45px;width:190px;}
+.gradient-table td{height:40px;border-bottom:1px solid #ccc;text-align:center;font-weight:bold;}
+.gradient-table .ta-rt{text-align:right;}
+.gradient-table .last-row{height:45px;background:url("../graphic/deposits/gt-td-gradient.html") repeat-x;color:#27a927;}
+
+/* Show/Hide bars with gradient background */
+.deposits a.heading {height:30px;text-indent:45px;color:#343434;border:1px solid #E0E2E3;display:block;color:#333;text-decoration:none;background: url("../graphic/show-hide-gradient-bar.html") repeat-x scroll 0 bottom #FFFFFF;}
+.deposits a.heading:hover {color:#333;text-decoration:none;background-color:#F8F8F8;background-image:none;border:1px solid #D3DDE9;}
+.deposits a.heading:focus {text-decoration:none;color:#333;}
+.deposits a.heading .title {font-weight:bold;font-size:1.2em;display:block;background:url('../graphic/bp-3c-table-toggle-up.html') 22px 6px no-repeat;line-height:18px;padding-top:5px;}
+.deposits a.heading .active-state {background:url('../graphic/bp-3c-table-toggle-down.html') 18px 6px no-repeat;}
+.deposits .content-area{padding:26px 0 10px 25px;}
+
+ul.dsp-show-bullets {
+	list-style: inside disc none !important;
+}
+
+/* Pop up Info Layers */
+span.helper {color:#3366CC;}
+span.helper:hover {text-decoration:underline;cursor:pointer;}
+.helper-content {display:none;height:auto;left:0;padding:10px;position:absolute;z-index:1;}
+.helper-content .helper-inner {position:relative;height:auto!important;font-size:1.1em;line-height:18px;}
+.helper-content .helper-inner .table-section{font-size:1.1em;}
+.helper-content .helper-inner p {padding-bottom:10px;}
+.helper-content .helper-inner h4 {font-weight:bold;padding-bottom:8px;}
+.helper-content .helper-inner ul {margin:-5px 0 15px 15px;}
+.helper-content .helper-inner ul li {border:medium none;list-style-position:outside;list-style-type:disc;padding:0;}
+.helper-content .helper-inner ul li.no-bullet {list-style-type:none;text-align:center;}
+.helper-content .helper-inner a.see-details {color:#3A56AD;float:left;padding-top:5px;position:relative;}
+.helper-content .helper-inner .see-details p {margin:0;padding:5px 5px 10px 0;text-align:right;}
+.helper-content .helper-inner .see-details p a:focus{text-decoration:none;color:#36c;}
+.dotted-lines{border-bottom:1px dotted;}
+a.dotted-lines:hover{border-bottom:none;}
+
+.footer .dsp-footer .global-footer-main{border-top:none;font-family:Verdana, Arial, Helvetica, sans-serif;margin-left:25px;}
+.footer .dsp-footer .footer-links{margin:0 0 10px;}

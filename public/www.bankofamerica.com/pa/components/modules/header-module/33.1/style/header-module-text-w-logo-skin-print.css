@@ -1,0 +1,9 @@
+.header-module .text-w-logo-skin .header-left {
+	margin-left:0;
+}
+.header-module .text-w-logo-skin .header-right {
+	display:none;
+}
+.header-module .text-w-logo-skin .product {
+    color: #333;
+}

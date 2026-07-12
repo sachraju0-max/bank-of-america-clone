@@ -1,0 +1,31 @@
+.fsd-layout-body, 
+.fsd-layout, 
+.fsd-layout .fsd-border,
+.fsd-layout .center-content,
+.fsd-layout .columns, 
+.fsd-layout .columns .lt-col, 
+.fsd-layout .columns .rt-col,
+.fsd-layout .footer,
+.fsd-layout .footer .footer-inner,
+.fsd-layout.fsd-full-width .columns,
+.fsd-layout.fsd-full-width .header>div,
+.fsd-layout.fsd-full-width .footer-inner>div{
+	float:none!important;
+	width:100%!important;
+	margin:0!important;
+	background:none!important;
+	border:none!important;
+}
+.fsd-layout .olb-dsp-faqs-nav-module{
+	display:none;
+}
+.fsd-layout .page-title-module .red-grad-bar-skin{
+	background:none;
+	padding:0;
+}
+.fsd-layout .page-title-module .red-grad-bar-skin h1{
+	color:#333!important;
+	margin:0!important;
+	padding:0!important;
+	width:100%!important;
+}

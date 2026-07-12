@@ -1,0 +1,12 @@
+.com-interstitial-modal .flex-modal-main-content,
+.com-interstitial-unaffiliated-modal .flex-modal-main-content {
+	padding-top:15px!important;
+}
+.com-interstitial-modal p, 
+.com-interstitial-unaffiliated-modal p {
+	padding-bottom:11px!important;
+}
+.com-interstitial-modal .flex-modal-buttons,
+.com-interstitial-unaffiliated-modal .flex-modal-buttons {
+	padding: 15px 0 24px!important;
+}

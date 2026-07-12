@@ -1,0 +1,15 @@
+.global-footer-module .fsd-skin{font:13px/16px Arial, Helvetica, sans-serif;}
+.global-footer-module .fsd-skin .gf-links{padding-top:19px;*display:inline-block;line-height:18px;}
+.global-footer-module .fsd-skin .gf-links a{display:inline-block;margin-right:10px;padding-right:11px;border-right:1px solid #515151;margin-bottom:10px;}
+.global-footer-module .fsd-skin .gf-links a.gf-last-link{border-right:none;padding-right:0;}
+.global-footer-module .fsd-skin p {padding-top:14px;}
+.global-footer-module .fsd-skin p a img{padding-left:8px;}
+.flex-layout .footer .footer-inner .global-footer-module .fsd-skin,
+.fsd-layout .footer-inner .global-footer-module .fsd-skin{margin:0 25px;padding-bottom:47px;}
+.global-footer-module .fsd-skin .gf-disclaimer{padding:28px 0 12px;*display:inline-block;}
+.global-footer-module .fsd-skin .gf-disclaimer img{float:left;display:block;margin-right:15px;}
+.global-footer-module .fsd-skin .gf-disclaimer p{float:left;width:80%;padding-top:5px;}
+.global-footer-module .fsd-skin #cobrowse {display: inline-block;background: url("../graphic/livelook.html") no-repeat scroll 5px 0px transparent;padding: 0 11px 0 32px;}
+.global-footer-module .fsd-skin .gf-links a.boa-com-info-layer-link {text-decoration: underline;text-decoration-style: dashed;border-bottom: none;text-underline-offset: 4px}
+.global-footer-module .fsd-skin #pillImage {display: none; height: 11px;}
+.global-footer-module .fsd-skin #cpraId {margin-right: 1px}
