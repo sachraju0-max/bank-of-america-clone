@@ -5,6 +5,8 @@ function Dashboard() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('Accounts');
   const [showBalance, setShowBalance] = useState(false);
+  const [accountSubTab, setAccountSubTab] = useState('Account Info');
+  const [showAccountNumber, setShowAccountNumber] = useState(false);
   
   // Theme State
   const [appTheme, setAppTheme] = useState('#0a1930');
@@ -176,7 +178,8 @@ function Dashboard() {
               </div>
               
               <div style={{ marginTop: 'auto' }}>
-                <button onClick={() => setActiveTab('Statement')} style={{ width: '100%', backgroundColor: '#012169', color: '#fff', border: 'none', padding: '15px', borderRadius: '8px', fontWeight: 'bold', fontSize: '14px', cursor: 'pointer' }}>Get Statement</button>
+                <button onClick={() => { setActiveTab('AccountDetails'); setAccountSubTab('Recent Transactions'); }} style={{ width: '100%', backgroundColor: '#012169', color: '#fff', border: 'none', padding: '15px', borderRadius: '8px', fontWeight: 'bold', fontSize: '14px', cursor: 'pointer' }}>Recent Transactions</button>
+                <button onClick={() => { setActiveTab('AccountDetails'); setAccountSubTab('Account Info'); }} style={{ width: '100%', backgroundColor: 'transparent', color: '#012169', border: '1px solid #012169', padding: '15px', borderRadius: '8px', fontWeight: 'bold', fontSize: '14px', cursor: 'pointer', marginTop: '10px' }}>Account Info</button>
               </div>
             </div>
 
@@ -213,7 +216,7 @@ function Dashboard() {
               <h3 style={{ margin: '0 0 20px 0', fontSize: '18px', color: '#334155' }}>My Favourite Links</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', flex: 1 }}>
                 {['Account Statement', 'Order Checks', 'Replace a lost card', 'Tax Center (1099/W-2)', 'Schedule an Appointment'].map(link => (
-                  <div key={link} onClick={() => link === 'Account Statement' ? setActiveTab('Statement') : openModal(link, `Routing to ${link}...`)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', borderBottom: '1px solid #cbd5e1', paddingBottom: '10px' }}>
+                  <div key={link} onClick={() => link === 'Account Statement' ? setActiveTab('AccountDetails') : openModal(link, `Routing to ${link}...`)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', borderBottom: '1px solid #cbd5e1', paddingBottom: '10px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                       <span style={{ fontSize: '14px', color: '#475569' }}>{link}</span>
@@ -352,66 +355,181 @@ function Dashboard() {
           </div>
         )}
 
-        {/* TAB 4: STATEMENT (New functionality) */}
-        {activeTab === 'Statement' && (
+        {/* TAB 4: ACCOUNT DETAILS (Sub-tabs: Recent Transactions, Account Info, Linked Debit Card) */}
+        {activeTab === 'AccountDetails' && (
           <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', padding: '40px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}>
-            <div className="statement-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '20px', marginBottom: '30px' }}>
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
+              <div style={{ display: 'flex', gap: '30px', borderBottom: '1px solid rgba(255,255,255,0.2)', width: '100%' }}>
+                {['Recent Transactions', 'Account Info', 'Linked Debit Card'].map(tab => (
+                  <div 
+                    key={tab}
+                    onClick={() => setAccountSubTab(tab)}
+                    style={{ 
+                      padding: '10px 0', 
+                      cursor: 'pointer', 
+                      color: accountSubTab === tab ? '#3b82f6' : '#94a3b8',
+                      borderBottom: accountSubTab === tab ? '2px solid #3b82f6' : '2px solid transparent',
+                      fontWeight: accountSubTab === tab ? 'bold' : 'normal',
+                      fontSize: '15px'
+                    }}
+                  >
+                    {tab}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {accountSubTab === 'Recent Transactions' && (
               <div>
-                <h1 style={{ margin: '0 0 10px 0', fontSize: '26px', color: '#fff' }}>Account Statement</h1>
-                <div style={{ color: '#94a3b8', fontSize: '15px' }}>Advantage Plus Banking | Account ending in 2378</div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <button onClick={() => setActiveTab('Accounts')} style={{ padding: '10px 20px', backgroundColor: 'transparent', color: '#3b82f6', border: '1px solid #3b82f6', borderRadius: '8px', cursor: 'pointer', marginRight: '10px', marginBottom: '10px' }}>Back to Accounts</button>
-                <button onClick={() => openModal('Download Statement', 'Generating PDF...')} style={{ padding: '10px 20px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Download PDF</button>
-              </div>
-            </div>
+                <div className="statement-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '30px' }}>
+                  <div>
+                    <h1 style={{ margin: '0 0 10px 0', fontSize: '26px', color: '#fff' }}>Recent Transactions</h1>
+                    <div style={{ color: '#94a3b8', fontSize: '15px' }}>Advantage Plus Banking | Account ending in 1187</div>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <button onClick={() => setActiveTab('Accounts')} style={{ padding: '10px 20px', backgroundColor: 'transparent', color: '#3b82f6', border: '1px solid #3b82f6', borderRadius: '8px', cursor: 'pointer', marginRight: '10px', marginBottom: '10px' }}>Back to Accounts</button>
+                    <button onClick={() => openModal('Download Statement', 'Generating PDF...')} style={{ padding: '10px 20px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Download PDF</button>
+                  </div>
+                </div>
 
-            <div className="statement-filter" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <h2 style={{ fontSize: '20px', color: '#fff', margin: 0 }}>Recent Transactions</h2>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <input type="text" placeholder="Search transactions..." style={{ padding: '10px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'rgba(0,0,0,0.2)', color: '#fff', borderRadius: '8px', width: '250px', outline: 'none' }} />
-                <button style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', padding: '10px 20px', borderRadius: '8px', cursor: 'pointer' }}>Filter</button>
-              </div>
-            </div>
+                <div className="statement-filter" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <input type="text" placeholder="Search transactions..." style={{ padding: '10px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'rgba(0,0,0,0.2)', color: '#fff', borderRadius: '8px', width: '250px', outline: 'none' }} />
+                    <button style={{ backgroundColor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', padding: '10px 20px', borderRadius: '8px', cursor: 'pointer' }}>Filter</button>
+                  </div>
+                </div>
 
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '15px', minWidth: '600px' }}>
-                <thead>
-                  <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.05)' }}>
-                    <th style={{ padding: '15px', color: '#cbd5e1' }}>Date</th>
-                    <th style={{ padding: '15px', color: '#cbd5e1' }}>Description</th>
-                    <th style={{ padding: '15px', color: '#cbd5e1' }}>Type</th>
-                    <th style={{ padding: '15px', color: '#cbd5e1', textAlign: 'right' }}>Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Jul 03, 2026</td>
-                    <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>AMB CHRG INCL GST JUN26</td>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Fee</td>
-                    <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$36.98</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Jul 01, 2026</td>
-                    <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>INTEREST PAID TILL 30-JUN</td>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Deposit</td>
-                    <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}>+$22.00</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Jun 20, 2026</td>
-                    <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>UPI-DAKSHINA PRASAD SARM</td>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Transfer</td>
-                    <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$200.00</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Jun 13, 2026</td>
-                    <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>JANMAR26 INSTAALERTCHG</td>
-                    <td style={{ padding: '15px', color: '#94a3b8' }}>Fee</td>
-                    <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$0.24</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '15px', minWidth: '600px' }}>
+                    <thead>
+                      <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                        <th style={{ padding: '15px', color: '#cbd5e1' }}>Date</th>
+                        <th style={{ padding: '15px', color: '#cbd5e1' }}>Description</th>
+                        <th style={{ padding: '15px', color: '#cbd5e1' }}>Type</th>
+                        <th style={{ padding: '15px', color: '#cbd5e1', textAlign: 'right' }}>Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jul 03, 2026</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>AMB CHRG INCL GST JUN26</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Fee</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$36.98</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jul 01, 2026</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>INTEREST PAID TILL 30-JUN</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Deposit</td>
+                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}>+$22.00</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jun 20, 2026</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>UPI-DAKSHINA PRASAD SARM</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Transfer</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$200.00</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jun 13, 2026</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>JANMAR26 INSTAALERTCHG</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>Fee</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$0.24</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {accountSubTab === 'Account Info' && (
+              <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+                
+                {/* Accordion 1: Account Details */}
+                <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)', marginBottom: '20px' }}>
+                  <div style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                    <h3 style={{ margin: 0, fontSize: '18px', color: '#fff' }}>Account details</h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                  </div>
+                  
+                  <div style={{ padding: '25px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '25px' }}>
+                      
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Account Name</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>TIRTHANKAR GHOSH</div>
+                      </div>
+
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Account Number</div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                          <div style={{ color: '#fff', fontSize: '15px', fontFamily: 'monospace' }}>
+                            {showAccountNumber ? '50100427751187' : '**** **** **11 87'}
+                          </div>
+                          <svg onClick={() => setShowAccountNumber(!showAccountNumber)} style={{ cursor: 'pointer' }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Account Type</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>Savings Account</div>
+                      </div>
+
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>IFSC</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>HDFC0001063</div>
+                      </div>
+
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Branch</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>SILCHAR - ASSAM</div>
+                      </div>
+
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                          MMID <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        </div>
+                        <div style={{ color: '#3b82f6', fontSize: '14px', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => openModal('MMID', 'Generating MMID for your account...')}>Generate</div>
+                      </div>
+
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>UPI ID</div>
+                        <div style={{ color: '#3b82f6', fontSize: '14px', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => openModal('UPI Details', 'Fetching linked UPI IDs...')}>Know More</div>
+                      </div>
+
+                      <div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>GSTIN</div>
+                        <div style={{ color: '#3b82f6', fontSize: '14px', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => openModal('GSTIN', 'Redirecting to GSTIN update portal...')}>View/Update GSTIN</div>
+                      </div>
+
+                    </div>
+                    
+                    <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '20px', display: 'flex', alignItems: 'center', gap: '10px', color: '#3b82f6', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }} onClick={() => openModal('Share', 'Account details copied to clipboard!')}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      Copy & Share Account Details
+                    </div>
+                  </div>
+                </div>
+
+                {/* Accordion 2: Nominee */}
+                <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }} onClick={() => openModal('Nominee Details', 'Nominee functionality is currently restricted.')}>
+                    <h3 style={{ margin: 0, fontSize: '18px', color: '#fff' }}>Nominee and Account Holder Details</h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </div>
+                </div>
+                
+              </div>
+            )}
+
+            {accountSubTab === 'Linked Debit Card' && (
+              <div style={{ textAlign: 'center', padding: '60px' }}>
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="1.5" style={{ margin: '0 auto 20px auto' }}><rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                <h2 style={{ color: '#fff', marginBottom: '15px' }}>Linked Debit Cards</h2>
+                <p style={{ color: '#94a3b8', maxWidth: '400px', margin: '0 auto 25px auto' }}>You have one Platinum Debit Card linked to this account.</p>
+                <button onClick={() => openModal('Card Settings', 'Opening Debit Card controls...')} style={{ padding: '12px 25px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}>Manage Debit Card</button>
+              </div>
+            )}
+
           </div>
         )}
 
