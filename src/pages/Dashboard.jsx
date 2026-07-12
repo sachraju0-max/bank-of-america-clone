@@ -385,7 +385,7 @@ function Dashboard() {
                 <div className="statement-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '30px' }}>
                   <div>
                     <h1 style={{ margin: '0 0 10px 0', fontSize: '26px', color: '#fff' }}>Recent Transactions</h1>
-                    <div style={{ color: '#94a3b8', fontSize: '15px' }}>Advantage Plus Banking | Account ending in 1187</div>
+                    <div style={{ color: '#94a3b8', fontSize: '15px' }}>Advantage Plus Banking | Account ending in 2378</div>
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <button onClick={() => setActiveTab('Accounts')} style={{ padding: '10px 20px', backgroundColor: 'transparent', color: '#3b82f6', border: '1px solid #3b82f6', borderRadius: '8px', cursor: 'pointer', marginRight: '10px', marginBottom: '10px' }}>Back to Accounts</button>
@@ -450,49 +450,47 @@ function Dashboard() {
                       
                       <div>
                         <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Account Name</div>
-                        <div style={{ color: '#fff', fontSize: '15px' }}>TIRTHANKAR GHOSH</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>Mr. Tirthankar ghosh</div>
                       </div>
 
                       <div>
                         <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Account Number</div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                           <div style={{ color: '#fff', fontSize: '15px', fontFamily: 'monospace' }}>
-                            {showAccountNumber ? '50100427751187' : '**** **** **11 87'}
+                            {showAccountNumber ? '76289112378' : '**** **** 2378'}
                           </div>
                           <svg onClick={() => setShowAccountNumber(!showAccountNumber)} style={{ cursor: 'pointer' }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
                         </div>
                       </div>
 
                       <div>
-                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Account Type</div>
-                        <div style={{ color: '#fff', fontSize: '15px' }}>Savings Account</div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>ABA Number</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>673866282</div>
                       </div>
 
                       <div>
-                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>IFSC</div>
-                        <div style={{ color: '#fff', fontSize: '15px' }}>HDFC0001063</div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>MICR Number</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>456272811138</div>
                       </div>
 
                       <div>
-                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Branch</div>
-                        <div style={{ color: '#fff', fontSize: '15px' }}>SILCHAR - ASSAM</div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Branch ID</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>7657</div>
                       </div>
 
                       <div>
-                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                          MMID <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                        </div>
-                        <div style={{ color: '#3b82f6', fontSize: '14px', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => openModal('MMID', 'Generating MMID for your account...')}>Generate</div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Branch Address</div>
+                        <div style={{ color: '#fff', fontSize: '15px' }}>550 5th Ave, New York, NY 10036</div>
                       </div>
 
                       <div>
-                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>UPI ID</div>
-                        <div style={{ color: '#3b82f6', fontSize: '14px', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => openModal('UPI Details', 'Fetching linked UPI IDs...')}>Know More</div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Main Balance</div>
+                        <div style={{ color: '#10b981', fontSize: '15px', fontWeight: 'bold' }}>$63,800.00</div>
                       </div>
 
                       <div>
-                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>GSTIN</div>
-                        <div style={{ color: '#3b82f6', fontSize: '14px', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => openModal('GSTIN', 'Redirecting to GSTIN update portal...')}>View/Update GSTIN</div>
+                        <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Lien Amount</div>
+                        <div style={{ color: '#f43f5e', fontSize: '15px', fontWeight: 'bold' }}>$1,200.00</div>
                       </div>
 
                     </div>
