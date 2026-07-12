@@ -405,35 +405,29 @@ function Dashboard() {
                     <thead>
                       <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.05)' }}>
                         <th style={{ padding: '15px', color: '#cbd5e1' }}>Date</th>
-                        <th style={{ padding: '15px', color: '#cbd5e1' }}>Description</th>
-                        <th style={{ padding: '15px', color: '#cbd5e1' }}>Type</th>
-                        <th style={{ padding: '15px', color: '#cbd5e1', textAlign: 'right' }}>Amount</th>
+                        <th style={{ padding: '15px', color: '#cbd5e1' }}>Transactions</th>
+                        <th style={{ padding: '15px', color: '#cbd5e1', textAlign: 'right' }}>Debit</th>
+                        <th style={{ padding: '15px', color: '#cbd5e1', textAlign: 'right' }}>Credit</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jul 03, 2026</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>AMB CHRG INCL GST JUN26</td>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Fee</td>
-                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$36.98</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>13th Jul 2026</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Swift transfer/7672/Tirthankar/Axis 1276726/NS.AJX/7862#(processing)</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$63,800.00</td>
+                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jul 01, 2026</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>INTEREST PAID TILL 30-JUN</td>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Deposit</td>
-                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}>+$22.00</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>2nd Jul 2026</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>ACS/processing/charges/76726XG</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$1,000.00</td>
+                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jun 20, 2026</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>UPI-DAKSHINA PRASAD SARM</td>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Transfer</td>
-                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$200.00</td>
-                      </tr>
-                      <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Jun 13, 2026</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>JANMAR26 INSTAALERTCHG</td>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>Fee</td>
-                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>-$0.24</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>24th Jun 2026</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>AMB CHG/General Electrical/126762/ Wire/28928/US Tres/BT</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}></td>
+                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}>$64,800.00</td>
                       </tr>
                     </tbody>
                   </table>
