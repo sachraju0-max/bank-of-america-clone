@@ -37,7 +37,7 @@ function Dashboard() {
     }, 2000);
   };
 
-  const navItems = ['Accounts', 'Send Money', 'Cards', 'FD/RD', 'Bills & Recharges', 'Loans', 'Invest', 'Insure'];
+  const navItems = ['Accounts', 'Send Money', 'Cards', 'CDs', 'Bills & Recharges', 'Loans', 'Invest', 'Insure'];
 
   return (
     <div style={{ backgroundColor: '#0a1930', minHeight: '100vh', fontFamily: 'Arial, sans-serif', color: '#fff' }}>
@@ -146,16 +146,16 @@ function Dashboard() {
               <div style={{ position: 'absolute', bottom: '25px', right: '25px', color: '#012169', cursor: 'pointer' }}>→</div>
             </div>
 
-            {/* Card 2: PPF Purple Gradient */}
+            {/* Card 2: IRA Purple Gradient */}
             <div style={{ minWidth: '300px', background: 'linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%)', borderRadius: '16px', padding: '25px', color: '#fff', display: 'flex', flexDirection: 'column', position: 'relative' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
-                <div style={{ fontSize: '20px', fontWeight: 'bold', lineHeight: '1.4', maxWidth: '80%' }}>Enjoy tax benefits and assured returns</div>
+                <div style={{ fontSize: '20px', fontWeight: 'bold', lineHeight: '1.4', maxWidth: '80%' }}>Enjoy tax advantages with a Merrill Edge® IRA</div>
                 <div style={{ backgroundColor: 'rgba(255,255,255,0.2)', padding: '10px', borderRadius: '8px', height: '44px' }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
                 </div>
               </div>
               <div style={{ marginTop: 'auto' }}>
-                <button onClick={() => openModal('PPF Account', 'Routing to PPF account opening workflow...')} style={{ backgroundColor: '#fff', color: '#5b21b6', border: 'none', padding: '12px 25px', borderRadius: '20px', fontWeight: 'bold', fontSize: '13px', cursor: 'pointer' }}>Open PPF Account</button>
+                <button onClick={() => setActiveTab('Invest')} style={{ backgroundColor: '#fff', color: '#5b21b6', border: 'none', padding: '12px 25px', borderRadius: '20px', fontWeight: 'bold', fontSize: '13px', cursor: 'pointer' }}>Open an IRA</button>
               </div>
               <div style={{ position: 'absolute', bottom: '25px', right: '25px', cursor: 'pointer' }}>→</div>
             </div>
@@ -178,7 +178,7 @@ function Dashboard() {
             <div style={{ minWidth: '300px', backgroundColor: '#e2e8f0', borderRadius: '16px', padding: '25px', color: '#0f172a', display: 'flex', flexDirection: 'column' }}>
               <h3 style={{ margin: '0 0 20px 0', fontSize: '18px', color: '#334155' }}>My Favourite Links</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', flex: 1 }}>
-                {['Account Statement', 'Open FD', 'Download FD Summary', 'Sweep-in / OD against FD', 'CASA Interest Certificate'].map(link => (
+                {['Account Statement', 'Order Checks', 'Replace a lost card', 'Tax Center (1099/W-2)', 'Schedule an Appointment'].map(link => (
                   <div key={link} onClick={() => link === 'Account Statement' ? setActiveTab('Statement') : openModal(link, `Routing to ${link}...`)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', borderBottom: '1px solid #cbd5e1', paddingBottom: '10px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -387,14 +387,49 @@ function Dashboard() {
           </div>
         )}
 
-        {/* TAB 5: PLACEHOLDERS */}
-        {['FD/RD', 'Bills & Recharges', 'Loans', 'Invest', 'Insure'].includes(activeTab) && (
+        {/* TAB 5: INVEST (Merrill Edge) */}
+        {activeTab === 'Invest' && (
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', padding: '40px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '20px' }}>
+              <div>
+                <h1 style={{ fontSize: '28px', color: '#fff', margin: '0 0 10px 0' }}>Merrill Edge® Self-Directed Investing</h1>
+                <p style={{ color: '#94a3b8', margin: 0, fontSize: '15px' }}>Take control of your investments and retirement planning.</p>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ color: '#94a3b8', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px' }}>Total Investment Balance</div>
+                <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#10b981' }}>$0.00</div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '25px', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1', minWidth: '250px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '30px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontSize: '20px', color: '#fff', marginTop: 0 }}>Traditional IRA</h3>
+                <p style={{ color: '#cbd5e1', lineHeight: '1.5', flex: 1 }}>Enjoy tax-deferred growth for your retirement savings. Contributions may be tax-deductible.</p>
+                <button onClick={() => openModal('Open Traditional IRA', 'Redirecting to Merrill Edge secure application...')} style={{ width: '100%', padding: '15px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', marginTop: '20px' }}>Open Traditional IRA</button>
+              </div>
+              
+              <div style={{ flex: '1', minWidth: '250px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '30px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontSize: '20px', color: '#fff', marginTop: 0 }}>Roth IRA</h3>
+                <p style={{ color: '#cbd5e1', lineHeight: '1.5', flex: 1 }}>Invest with after-tax dollars and enjoy tax-free growth and withdrawals in retirement.</p>
+                <button onClick={() => openModal('Open Roth IRA', 'Redirecting to Merrill Edge secure application...')} style={{ width: '100%', padding: '15px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', marginTop: '20px' }}>Open Roth IRA</button>
+              </div>
+
+              <div style={{ flex: '1', minWidth: '250px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '30px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontSize: '20px', color: '#fff', marginTop: 0 }}>General Brokerage</h3>
+                <p style={{ color: '#cbd5e1', lineHeight: '1.5', flex: 1 }}>Trade stocks, ETFs, mutual funds, and options with $0 online equity and ETF trades.</p>
+                <button onClick={() => openModal('Open Brokerage Account', 'Redirecting to Merrill Edge secure application...')} style={{ width: '100%', padding: '15px', backgroundColor: 'transparent', color: '#3b82f6', border: '2px solid #3b82f6', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', marginTop: '20px' }}>Open Brokerage Account</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 6: PLACEHOLDERS */}
+        {['CDs', 'Bills & Recharges', 'Loans', 'Insure'].includes(activeTab) && (
           <div style={{ backgroundColor: 'rgba(255,255,255,0.03)', padding: '60px 40px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', maxWidth: '800px', margin: '0 auto', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}>
             <div style={{ fontSize: '50px', marginBottom: '25px', display: 'inline-block', padding: '20px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '50%' }}>
-              {activeTab === 'FD/RD' && '📈'}
+              {activeTab === 'CDs' && '📈'}
               {activeTab === 'Bills & Recharges' && '🧾'}
               {activeTab === 'Loans' && '🏡'}
-              {activeTab === 'Invest' && '📊'}
               {activeTab === 'Insure' && '🛡️'}
             </div>
             <h1 style={{ fontSize: '28px', color: '#fff', marginBottom: '15px' }}>{activeTab} Dashboard</h1>
