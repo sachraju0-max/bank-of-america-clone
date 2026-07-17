@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
@@ -18,6 +18,22 @@ function Dashboard() {
   
   // Universal Modal State for non-implemented links
   const [modalState, setModalState] = useState({ isOpen: false, title: '', message: '', loading: false });
+
+  const [loginTime, setLoginTime] = useState('06/06/26, 05:58 PM EST');
+
+  useEffect(() => {
+    const now = new Date();
+    const estTime = now.toLocaleString('en-US', {
+      timeZone: 'America/New_York',
+      month: '2-digit',
+      day: '2-digit',
+      year: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+    setLoginTime(estTime + ' EST');
+  }, []);
 
   const openModal = (title, message) => {
     setModalState({ isOpen: true, title, message: 'Processing your request...', loading: true });
@@ -52,6 +68,162 @@ function Dashboard() {
     { name: 'Deep Purple', color: '#2e1065' },
     { name: 'Crimson Red', color: '#4c0519' }
   ];
+
+  const handleDownloadStatement = () => {
+    const printWindow = window.open('', '_blank');
+    const logoUrl = window.location.origin + '/images/bank_of_america_logo.svg';
+    
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Bank of America Statement</title>
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+            body { font-family: 'Open Sans', Arial, sans-serif; padding: 40px; color: #333; font-size: 12px; line-height: 1.5; }
+            .header-table { width: 100%; border-bottom: 3px solid #e31837; padding-bottom: 20px; margin-bottom: 30px; }
+            .header-table td { vertical-align: top; }
+            .logo { width: 220px; }
+            .statement-info { text-align: right; color: #555; }
+            .statement-info h2 { color: #012169; margin: 0 0 5px 0; font-size: 24px; font-weight: 700; }
+            .customer-info { margin-bottom: 40px; }
+            .customer-info h3 { margin: 0; font-size: 16px; color: #012169; }
+            .summary-box { border: 1px solid #ccc; border-radius: 4px; padding: 20px; margin-bottom: 40px; background-color: #f8f9fa; }
+            .summary-box h3 { color: #012169; margin-top: 0; font-size: 16px; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 15px; }
+            .summary-table { width: 100%; }
+            .summary-table td { padding: 5px 0; }
+            .summary-table .amount { text-align: right; font-weight: 600; }
+            .transactions-section h3 { color: #012169; font-size: 16px; border-bottom: 2px solid #012169; padding-bottom: 5px; margin-bottom: 15px; }
+            .tx-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+            .tx-table th { background-color: #012169; color: white; padding: 10px; text-align: left; font-size: 12px; font-weight: 600; }
+            .tx-table td { padding: 12px 10px; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+            .tx-table .date-col { width: 15%; }
+            .tx-table .desc-col { width: 60%; }
+            .tx-table .amt-col { width: 25%; text-align: right; }
+            .footer { margin-top: 50px; font-size: 10px; color: #777; text-align: center; border-top: 1px solid #ccc; padding-top: 20px; }
+          </style>
+        </head>
+        <body>
+          <table class="header-table">
+            <tr>
+              <td>
+                <img src="\${logoUrl}" class="logo" alt="Bank of America" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/2/20/Bank_of_America_logo.svg';" />
+              </td>
+              <td class="statement-info">
+                <h2>Account Statement</h2>
+                <p><strong>Statement Period:</strong> June 15, 2026 to July 16, 2026<br/>
+                <strong>Account Number:</strong> 0000XXXXXXXX2378<br/>
+                <strong>Page 1 of 1</strong></p>
+              </td>
+            </tr>
+          </table>
+
+          <div class="customer-info">
+            <h3>TIRTHANKAR GHOSH</h3>
+            <p>Advantage Plus Banking<br/>
+            PO BOX 15284<br/>
+            WILMINGTON, DE 19850</p>
+          </div>
+
+          <div class="summary-box">
+            <h3>Your Account Summary</h3>
+            <table class="summary-table">
+              <tr>
+                <td>Beginning balance on June 15, 2026</td>
+                <td class="amount">$20,000.00</td>
+              </tr>
+              <tr>
+                <td>Deposits and other additions</td>
+                <td class="amount">$64,800.00</td>
+              </tr>
+              <tr>
+                <td>Withdrawals and other subtractions</td>
+                <td class="amount">-$66,000.00</td>
+              </tr>
+              <tr>
+                <td>Service fees</td>
+                <td class="amount">-$0.00</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; padding-top: 10px; border-top: 1px solid #ccc;">Ending balance on July 16, 2026</td>
+                <td class="amount" style="font-weight: 700; padding-top: 10px; border-top: 1px solid #ccc;">$18,800.00</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="transactions-section">
+            <h3>Deposits and Other Additions</h3>
+            <table class="tx-table">
+              <thead>
+                <tr>
+                  <th class="date-col">Date</th>
+                  <th class="desc-col">Description</th>
+                  <th class="amt-col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>24/06/26</td>
+                  <td>AMB CHG/General Electrical/126762/ Wire/28928/US Tres/BT</td>
+                  <td class="amt-col">$64,800.00</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>Withdrawals and Other Subtractions</h3>
+            <table class="tx-table">
+              <thead>
+                <tr>
+                  <th class="date-col">Date</th>
+                  <th class="desc-col">Description</th>
+                  <th class="amt-col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>16/07/26</td>
+                  <td>Bank of America/Tirthankar/Axis/127627662/(holding)/ Verification 7827/ RBI 872822<br/>
+                  <span style="color: #666; font-size: 11px;">Processed at 02:30 PM EST</span></td>
+                  <td class="amt-col">-$63,000.00</td>
+                </tr>
+                <tr>
+                  <td>16/07/26</td>
+                  <td>ATS/7672/Tirthankar/Axis/1278728/Ns.AJX/(processing)/RBI 892722<br/>
+                  <span style="color: #666; font-size: 11px;">Processed at 10:45 AM EST</span></td>
+                  <td class="amt-col">-$1,200.00</td>
+                </tr>
+                <tr>
+                  <td>13/07/26</td>
+                  <td>Swift transfer/7672/Tirthankar/Axis 1276726/NS.AJX/7862#(processing)<br/>
+                  <span style="color: #666; font-size: 11px;">Processed at 09:15 AM EST</span></td>
+                  <td class="amt-col">-$800.00</td>
+                </tr>
+                <tr>
+                  <td>02/07/26</td>
+                  <td>ACS/processing/charges/76726XG<br/>
+                  <span style="color: #666; font-size: 11px;">Processed at 11:20 AM EST</span></td>
+                  <td class="amt-col">-$1,000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="footer">
+            Bank of America, N.A. Member FDIC. © 2026 Bank of America Corporation. All rights reserved.<br/>
+            Contact us at 1.800.432.1000 or visit bankofamerica.com
+          </div>
+
+          <script>
+            window.onload = function() {
+              setTimeout(function() {
+                window.print();
+              }, 500); // Small delay to allow fonts and images to load
+            }
+          </script>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+  };
 
   return (
     <div className="dashboard-container" style={{ backgroundColor: appTheme, minHeight: '100vh', fontFamily: 'Arial, sans-serif', color: '#fff', transition: 'background-color 0.5s' }}>
@@ -101,7 +273,20 @@ function Dashboard() {
             <span style={{ fontSize: '14px', display: 'none' }}>Services</span>
           </div>
           
-          <svg onClick={() => openModal('Notifications', 'You have no new notifications.')} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ cursor: 'pointer' }}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <svg onClick={() => openModal('Notifications', (
+            <div style={{ textAlign: 'left', fontSize: '13px' }}>
+              <div style={{ marginBottom: '10px' }}>
+                <strong style={{ color: '#fff' }}>16th July 2026, 10:45 AM EST</strong><br/>
+                ATS/7672/Tirthankar/Axis/1278728/Ns.AJX/(processing)/RBI 892722.<br/>
+                <span style={{ color: '#f43f5e' }}>Debit: $1,200.00</span>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '10px' }}>
+                <strong style={{ color: '#fff' }}>16th July 2026, 02:30 PM EST</strong><br/>
+                Bank of America/Tirthankar/Axis/127627662/(holding)/ Verification 7827/ RBI 872822<br/>
+                <span style={{ color: '#f43f5e' }}>Debit: $63,000.00</span>
+              </div>
+            </div>
+          ))} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ cursor: 'pointer' }}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
           <svg onClick={() => navigate('/')} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ cursor: 'pointer' }}><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
           
           <div style={{ width: '35px', height: '35px', backgroundColor: '#e31837', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', cursor: 'pointer' }}>TG</div>
@@ -121,7 +306,7 @@ function Dashboard() {
         {/* Welcome Section */}
         <div style={{ marginBottom: '30px' }}>
           <h1 style={{ fontSize: '32px', margin: '0 0 8px 0', fontWeight: 'bold' }}>Welcome, Tirthankar Ghosh</h1>
-          <div style={{ color: '#94a3b8', fontSize: '14px' }}>Last logged in at 06/06/26, 05:58 PM</div>
+          <div style={{ color: '#94a3b8', fontSize: '14px' }}>Last logged in at {loginTime}</div>
         </div>
 
         {/* Navigation Pills */}
@@ -161,7 +346,7 @@ function Dashboard() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
                 <div>
                   <div style={{ color: '#666', fontSize: '14px', marginBottom: '5px' }}>Savings Accounts</div>
-                  <div style={{ fontSize: '24px', fontWeight: 'bold', letterSpacing: '1px' }}>{showBalance ? '$63,800.00' : 'XXXXXXXXX'}</div>
+                  <div style={{ fontSize: '24px', fontWeight: 'bold', letterSpacing: '1px' }}>{showBalance ? '$800.00' : 'XXXXXXXXX'}</div>
                 </div>
                 <div style={{ color: '#012169' }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
@@ -389,7 +574,7 @@ function Dashboard() {
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <button onClick={() => setActiveTab('Accounts')} style={{ padding: '10px 20px', backgroundColor: 'transparent', color: '#3b82f6', border: '1px solid #3b82f6', borderRadius: '8px', cursor: 'pointer', marginRight: '10px', marginBottom: '10px' }}>Back to Accounts</button>
-                    <button onClick={() => openModal('Download Statement', 'Generating PDF...')} style={{ padding: '10px 20px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Download PDF</button>
+                    <button onClick={handleDownloadStatement} style={{ padding: '10px 20px', backgroundColor: '#3b82f6', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Download PDF</button>
                   </div>
                 </div>
 
@@ -412,19 +597,31 @@ function Dashboard() {
                     </thead>
                     <tbody>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>13th Jul 2026</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Swift transfer/7672/Tirthankar/Axis 1276726/NS.AJX/7862#(processing)</td>
-                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$63,800.00</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>16th July 2026, 10:45 AM EST</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>ATS/7672/Tirthankar/Axis/1278728/Ns.AJX/(processing)/RBI 892722.</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$1,200.00</td>
                         <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>2nd Jul 2026</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>16th July 2026, 02:30 PM EST</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Bank of America/Tirthankar/Axis/127627662/(holding)/ Verification 7827/ RBI 872822</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$63,000.00</td>
+                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>13th Jul 2026, 09:15 AM EST</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Swift transfer/7672/Tirthankar/Axis 1276726/NS.AJX/7862#(processing)</td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$800.00</td>
+                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>2nd Jul 2026, 11:20 AM EST</td>
                         <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>ACS/processing/charges/76726XG</td>
                         <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$1,000.00</td>
                         <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        <td style={{ padding: '15px', color: '#94a3b8' }}>24th Jun 2026</td>
+                        <td style={{ padding: '15px', color: '#94a3b8' }}>24th Jun 2026, 04:55 PM EST</td>
                         <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>AMB CHG/General Electrical/126762/ Wire/28928/US Tres/BT</td>
                         <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}></td>
                         <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}>$64,800.00</td>
@@ -485,12 +682,15 @@ function Dashboard() {
 
                       <div>
                         <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Main Balance</div>
-                        <div style={{ color: '#10b981', fontSize: '15px', fontWeight: 'bold' }}>$63,800.00</div>
+                        <div style={{ color: '#10b981', fontSize: '15px', fontWeight: 'bold' }}>$800.00</div>
                       </div>
 
                       <div>
                         <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Lien Amount</div>
-                        <div style={{ color: '#f43f5e', fontSize: '15px', fontWeight: 'bold' }}>$1,200.00</div>
+                        <div style={{ color: '#f43f5e', fontSize: '15px', fontWeight: 'bold' }}>
+                          <div>~$1,200.00</div>
+                          <div>~$63,000.00</div>
+                        </div>
                       </div>
 
                     </div>
@@ -587,7 +787,7 @@ function Dashboard() {
       
       {/* Universal Pop-up Modal */}
       {modalState.isOpen && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '20px' }}>
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: modalState.title === 'Notifications' ? 'transparent' : 'rgba(0,0,0,0.8)', display: 'flex', alignItems: modalState.title === 'Notifications' ? 'flex-start' : 'center', justifyContent: modalState.title === 'Notifications' ? 'flex-end' : 'center', zIndex: 1000, padding: modalState.title === 'Notifications' ? '80px 40px 20px 20px' : '20px' }}>
           <div className="modal-box" style={{ backgroundColor: '#1e293b', padding: '40px', borderRadius: '16px', maxWidth: '400px', width: '100%', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', textAlign: 'center', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}>
             {modalState.loading ? (
               <>
