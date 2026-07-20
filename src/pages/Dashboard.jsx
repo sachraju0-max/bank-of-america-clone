@@ -162,12 +162,6 @@ function Dashboard() {
               </thead>
               <tbody>
                 <tr>
-                  <td>20/07/26</td>
-                  <td>AXL/15662652/Tirth axis/ swift 23122 ajx/ RBI IES 23411.<br/>
-                  <span style="color: #10b981; font-size: 11px;">(Complete) - Processed at 03:25 PM EST</span></td>
-                  <td class="amt-col">$1,200.00</td>
-                </tr>
-                <tr>
                   <td>24/06/26</td>
                   <td>AMB CHG/General Electrical/126762/ Wire/28928/US Tres/BT</td>
                   <td class="amt-col">$64,800.00</td>
@@ -186,20 +180,26 @@ function Dashboard() {
               </thead>
               <tbody>
                 <tr>
+                  <td>20/07/26</td>
+                  <td>AXL/15662652/Tirthankar ghosh/ swift 23122 ajx/ RBI IES 23411.<br/>
+                  <span style="color: #10b981; font-size: 11px;">(Complete) - Processed at 03:25 PM EST</span></td>
+                  <td class="amt-col">-$1,200.00</td>
+                </tr>
+                <tr>
                   <td>16/07/26</td>
-                  <td>Bank of America/Tirthankar/Axis/127627662/(holding)/ Verification 7827/ RBI 872822<br/>
+                  <td>Bank of America/Tirthankar ghosh/Axis/127627662/(holding)/ Verification 7827/ RBI 872822<br/>
                   <span style="color: #666; font-size: 11px;">Processed at 02:30 PM EST</span></td>
                   <td class="amt-col">-$63,000.00</td>
                 </tr>
                 <tr>
                   <td>16/07/26</td>
-                  <td>ATS/7672/Tirthankar/Axis/1278728/Ns.AJX/(processing)/RBI 892722<br/>
+                  <td>ATS/7672/Tirthankar ghosh/Axis/1278728/Ns.AJX/(processing)/RBI 892722<br/>
                   <span style="color: #666; font-size: 11px;">Processed at 10:45 AM EST</span></td>
                   <td class="amt-col">-$1,200.00</td>
                 </tr>
                 <tr>
                   <td>13/07/26</td>
-                  <td>Swift transfer/7672/Tirthankar/Axis 1276726/NS.AJX/7862#(processing)<br/>
+                  <td>Swift transfer/7672/Tirthankar ghosh/Axis 1276726/NS.AJX/7862#(processing)<br/>
                   <span style="color: #666; font-size: 11px;">Processed at 09:15 AM EST</span></td>
                   <td class="amt-col">-$800.00</td>
                 </tr>
@@ -283,12 +283,12 @@ function Dashboard() {
             <div style={{ textAlign: 'left', fontSize: '13px' }}>
               <div style={{ marginBottom: '10px' }}>
                 <strong style={{ color: '#fff' }}>16th July 2026, 10:45 AM EST</strong><br/>
-                ATS/7672/Tirthankar/Axis/1278728/Ns.AJX/(processing)/RBI 892722.<br/>
+                ATS/7672/Tirthankar ghosh/Axis/1278728/Ns.AJX/(processing)/RBI 892722.<br/>
                 <span style={{ color: '#f43f5e' }}>Debit: $1,200.00</span>
               </div>
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '10px' }}>
                 <strong style={{ color: '#fff' }}>16th July 2026, 02:30 PM EST</strong><br/>
-                Bank of America/Tirthankar/Axis/127627662/(holding)/ Verification 7827/ RBI 872822<br/>
+                Bank of America/Tirthankar ghosh/Axis/127627662/(holding)/ Verification 7827/ RBI 872822<br/>
                 <span style={{ color: '#f43f5e' }}>Debit: $63,000.00</span>
               </div>
             </div>
@@ -352,7 +352,7 @@ function Dashboard() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
                 <div>
                   <div style={{ color: '#666', fontSize: '14px', marginBottom: '5px' }}>Savings Accounts</div>
-                  <div style={{ fontSize: '24px', fontWeight: 'bold', letterSpacing: '1px' }}>{showBalance ? '$2,000.00' : 'XXXXXXXXX'}</div>
+                  <div style={{ fontSize: '24px', fontWeight: 'bold', letterSpacing: '1px' }}>{showBalance ? '$800.00' : 'XXXXXXXXX'}</div>
                 </div>
                 <div style={{ color: '#012169' }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
@@ -604,25 +604,25 @@ function Dashboard() {
                     <tbody>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                         <td style={{ padding: '15px', color: '#94a3b8' }}>20th Jul 2026, 03:25 PM EST</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>AXL/15662652/Tirth axis/ swift 23122 ajx/ RBI IES 23411.<br/><span style={{ color: '#10b981', fontSize: '13px', fontWeight: 'normal' }}>(Complete)</span></td>
-                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}></td>
-                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}>$1,200.00</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>AXL/15662652/Tirthankar ghosh/ swift 23122 ajx/ RBI IES 23411.<br/><span style={{ color: '#10b981', fontSize: '13px', fontWeight: 'normal' }}>(Complete)</span></td>
+                        <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$1,200.00</td>
+                        <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                         <td style={{ padding: '15px', color: '#94a3b8' }}>16th July 2026, 10:45 AM EST</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>ATS/7672/Tirthankar/Axis/1278728/Ns.AJX/(processing)/RBI 892722.</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>ATS/7672/Tirthankar ghosh/Axis/1278728/Ns.AJX/(processing)/RBI 892722.</td>
                         <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$1,200.00</td>
                         <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                         <td style={{ padding: '15px', color: '#94a3b8' }}>16th July 2026, 02:30 PM EST</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Bank of America/Tirthankar/Axis/127627662/(holding)/ Verification 7827/ RBI 872822</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Bank of America/Tirthankar ghosh/Axis/127627662/(holding)/ Verification 7827/ RBI 872822</td>
                         <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$63,000.00</td>
                         <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
                       <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                         <td style={{ padding: '15px', color: '#94a3b8' }}>13th Jul 2026, 09:15 AM EST</td>
-                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Swift transfer/7672/Tirthankar/Axis 1276726/NS.AJX/7862#(processing)</td>
+                        <td style={{ padding: '15px', color: '#fff', fontWeight: 'bold' }}>Swift transfer/7672/Tirthankar ghosh/Axis 1276726/NS.AJX/7862#(processing)</td>
                         <td style={{ padding: '15px', color: '#f43f5e', textAlign: 'right' }}>$800.00</td>
                         <td style={{ padding: '15px', color: '#10b981', textAlign: 'right' }}></td>
                       </tr>
@@ -694,7 +694,7 @@ function Dashboard() {
 
                       <div>
                         <div style={{ color: '#94a3b8', fontSize: '13px', marginBottom: '5px' }}>Main Balance</div>
-                        <div style={{ color: '#10b981', fontSize: '15px', fontWeight: 'bold' }}>$2,000.00</div>
+                        <div style={{ color: '#10b981', fontSize: '15px', fontWeight: 'bold' }}>$800.00</div>
                       </div>
 
                       <div>
